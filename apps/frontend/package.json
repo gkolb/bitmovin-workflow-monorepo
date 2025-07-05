@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "type": "module",
+  "nx": {
+    "targets": {
+      "serve": {
+        "executor": "@nx/vite:dev-server",
+        "options": {
+          "buildTarget": "frontend:build"
+        }
+      },
+      "build": {
+        "executor": "@nx/vite:build",
+        "outputs": [
+          "{workspaceRoot}/dist/apps/frontend"
+        ]
+      }
+    }
+  }
+}

@@ -10,6 +10,15 @@
     ],
     "sharedGlobals": []
   },
+  "frontend": {
+    "root": "apps/frontend",
+    "sourceRoot": "apps/frontend/src",
+    "projectType": "application",
+    "targets": {
+      "serve": { "executor": "@nx/vite:dev-server" },
+      "build": { "executor": "@nx/vite:build" }
+    }
+  },
   "plugins": [
     {
       "plugin": "@nx/js/typescript",

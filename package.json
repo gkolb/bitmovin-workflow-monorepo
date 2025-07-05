@@ -4,6 +4,7 @@
   "license": "MIT",
   "scripts": {},
   "private": true,
+  "type": "module",
   "devDependencies": {
     "@nx/js": "21.2.2",
     "@nx/vite": "^21.2.2",
@@ -12,6 +13,8 @@
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/node": "^24.0.10",
     "@vitest/ui": "^3.0.0",
     "jiti": "2.4.2",
     "nx": "21.2.2",
@@ -19,12 +22,11 @@
     "svelte": "^5.35.2",
     "svelte-check": "^4.2.2",
     "tslib": "^2.3.0",
-    "typescript": "~5.8.2",
+    "typescript": "^5.7.3",
     "vite": "^6.3.5",
     "vitest": "^3.2.4"
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {}
+  ]
 }
