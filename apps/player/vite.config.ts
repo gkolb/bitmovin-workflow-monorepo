@@ -13,7 +13,7 @@ export default defineConfig({
   root: __dirname,
   plugins: [svelte(), nxViteTsPaths()],
   build: {
-    outDir: '../../dist/apps/frontend',
+    outDir: '../../dist/apps/player',
   },
   server: {
     port: 4200,

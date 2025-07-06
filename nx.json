@@ -10,9 +10,9 @@
     ],
     "sharedGlobals": []
   },
-  "frontend": {
-    "root": "apps/frontend",
-    "sourceRoot": "apps/frontend/src",
+  "player": {
+    "root": "apps/player",
+    "sourceRoot": "apps/player/src",
     "projectType": "application",
     "targets": {
       "serve": { "executor": "@nx/vite:dev-server" },

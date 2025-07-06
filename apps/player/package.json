@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "player",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
@@ -10,13 +10,13 @@
       "serve": {
         "executor": "@nx/vite:dev-server",
         "options": {
-          "buildTarget": "frontend:build"
+          "buildTarget": "player:build"
         }
       },
       "build": {
         "executor": "@nx/vite:build",
         "outputs": [
-          "{workspaceRoot}/dist/apps/frontend"
+          "{workspaceRoot}/dist/apps/player"
         ]
       }
     }
