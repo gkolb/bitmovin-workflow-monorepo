@@ -6,7 +6,9 @@
       "default",
       "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
       "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/src/test-setup.[jt]s"
+      "!{projectRoot}/src/test-setup.[jt]s",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.mjs"
     ],
     "sharedGlobals": []
   },
@@ -15,8 +17,12 @@
     "sourceRoot": "apps/player/src",
     "projectType": "application",
     "targets": {
-      "serve": { "executor": "@nx/vite:dev-server" },
-      "build": { "executor": "@nx/vite:build" }
+      "serve": {
+        "executor": "@nx/vite:dev-server"
+      },
+      "build": {
+        "executor": "@nx/vite:build"
+      }
     }
   },
   "plugins": [
@@ -47,6 +53,19 @@
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
       }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
     }
-  ]
+  ],
+  "targetDefaults": {
+    "@nx/esbuild:esbuild": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    }
+  }
 }
