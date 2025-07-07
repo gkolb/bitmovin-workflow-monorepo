@@ -2,8 +2,6 @@ import 'dotenv/config';
 const { ConsoleLogger } = require('@bitmovin/api-sdk');
 // const BitmovinApi = require('@bitmovin/api-sdk').default;
 import BitmovinApi, {
-  HttpsInput,
-  GcsOutput,
   H264VideoConfiguration,
   PresetConfiguration,
   AacAudioConfiguration,
@@ -24,38 +22,44 @@ import BitmovinApi, {
   StartEncodingRequest,
   ManifestGenerator,
   ManifestResource,
+  S3Output,
+  S3Input,
 } from '@bitmovin/api-sdk';
 
-const API_KEY = process.env.BITMOVIN_API_KEY || '';
+const BITMOVIN_API_KEY = process.env.BITMOVIN_API_KEY || '';
 
-if (!API_KEY) console.warn('API KEY MISSING');
+if (!BITMOVIN_API_KEY) console.warn('API KEY MISSING');
 
 // Setup client instance
 const bitmovinApi = new BitmovinApi({
-  apiKey: process.env.BITMOVIN_API_KEY || '',
+  apiKey: BITMOVIN_API_KEY,
   logger: new ConsoleLogger(),
 });
-
-console.log('Bitmovin Key: ', process.env.BITMOVIN_API_KEY);
+console.log(process.env.AWS_INPUT_BUCKET);
 
 export async function main() {
   // Create Input
-  const input = await bitmovinApi.encoding.inputs.https.create(
-    new HttpsInput({
-      host: '<HTTPS_INPUT_HOST>',
-      name: '<INPUT_NAME>',
+  // AWS Input
+  const input = await bitmovinApi.encoding.inputs.s3.create(
+    new S3Input({
+      name: 'bbb_compressed',
+      accessKey: process.env.AWS_ACCESS_KEY,
+      secretKey: process.env.AWS_SECRET_KEY,
+      bucketName: process.env.AWS_BUCKET,
     })
   );
+
   // Reuse Inputs
   //   const input = await bitmovinApi.encoding.inputs.https.get('<INPUT_ID>');
 
   // Create Output
-  const output = await bitmovinApi.encoding.outputs.gcs.create(
-    new GcsOutput({
-      name: '<GCS_OUTPUT_NAME>',
-      accessKey: '<GCS_ACCESS_KEY>',
-      secretKey: '<GCS_SECRET_KEY>',
-      bucketName: '<GCS_BUCKET_NAME>',
+  // AWS S3 Bucket
+  const output = await bitmovinApi.encoding.outputs.s3.create(
+    new S3Output({
+      name: 'First Encoding Task',
+      accessKey: process.env.AWS_ACCESS_KEY,
+      secretKey: process.env.AWS_SECRET_KEY,
+      bucketName: process.env.AWS_BUCKET,
     })
   );
   const outputId = output.id;
@@ -111,7 +115,7 @@ export async function main() {
   );
 
   // Streams
-  const inputPath = '<INPUT_PATH>';
+  const inputPath = 'bbb_compressed.mp4';
 
   const videoStreamInput = new StreamInput({
     inputId: input.id,
@@ -164,7 +168,7 @@ export async function main() {
     });
 
     const segmentLength = 4;
-    const outputPath = '<OUTPUT_PATH>';
+    const outputPath = 'bbb';
     const segmentNaming = 'seg_%number%.m4s';
     const initSegmentName = 'init.mp4';
 
@@ -289,5 +293,7 @@ export async function main() {
     );
   }
 }
+
+main();
 
 console.log('Hello Encoding');
