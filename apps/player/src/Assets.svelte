@@ -17,7 +17,7 @@
 <div class="w-full min-w-[240px]">
     <div class="shadow-sm border rounded-xl w-full">
         <!-- Header -->
-        <div class="rounded-t-xl flex font-semibold border-b px-4 py-2 bg-muted">
+        <div class="rounded-t-xl flex font-semibold px-4 py-2 bg-muted">
           <div>Assets</div>
         </div>
       

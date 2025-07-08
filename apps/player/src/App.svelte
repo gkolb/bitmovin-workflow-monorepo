@@ -13,6 +13,11 @@
   };
 </script>
 
+<header class="border-b">
+  <div class="p-4 flex items-center gap-2 justify-between">
+    <div class="font-bold text-3xl">Bitmovin Workflow</div>
+  </div>
+</header>
 <div class="container mx-auto p-15 px-4 space-y-8">
   <Player {source} />
   <div class="flex flex-col lg:flex-row gap-4 m-10 lg:m-4">
