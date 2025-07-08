@@ -7,30 +7,21 @@
     import * as Card from "$lib/components/ui/card/index.js";
 </script>
    
-<!-- <div class="grid w-full max-w-sm items-center gap-1.5">
-    <Label for="picture">File Upload (mp4)</Label>
-    <Input id="picture" type="file" />
-</div> -->
-
-<!-- <script lang="ts">
-    import { Label } from "$lib/components/ui/label/index.js";
-    import { Input } from "$lib/components/ui/input/index.js";
-   </script> -->
-    
-   <Card.Root class="w-full max-w-sm">
+<Card.Root class="w-full">
     <Card.Header>
-     <Card.Title>File Upload (.mp4)</Card.Title>
+        <Card.Title>File Upload (.mp4)</Card.Title>
     </Card.Header>
     <Card.Content>
-     <form>
-      <div class="flex flex-col gap-6">
-       <div class="grid gap-2">
+        <form>
+        <div class="flex flex-col gap-6">
+        <div class="grid gap-2">
         <Input type="file" />
-       </div>
-      </div>
-     </form>
+        </div>
+        </div>
+        </form>
     </Card.Content>
     <Card.Footer class="flex-col gap-2">
-     <Button type="submit" class="w-full">Upload</Button>
+        <Button type="submit" class="w-full">Upload</Button>
     </Card.Footer>
-   </Card.Root>
+    </Card.Root>
+

@@ -15,7 +15,7 @@
 
 <div class="container mx-auto p-15 px-4 space-y-8">
   <Player {source} />
-  <div class="flex">
+  <div class="flex gap-4">
     <FileUpload />
     <PendingTasks />
     <Assets />
