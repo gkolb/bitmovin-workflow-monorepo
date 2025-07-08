@@ -6,9 +6,12 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"]
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "$lib": ["./src/lib"],
+        "$lib/*": ["./src/lib/*"]
+      }
     }
   },
   "include": ["src/**/*.ts", "src/**/*.svelte"],

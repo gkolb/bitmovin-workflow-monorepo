@@ -19,4 +19,9 @@ export default defineConfig({
   server: {
     port: 4200,
   },
+  resolve: {
+    alias: {
+      $lib: path.resolve('./src/lib'),
+    },
+  },
 });
