@@ -1,4 +1,10 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json"
+  "extends": "@tsconfig/svelte/tsconfig.json",
   //... other configs
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
 }
