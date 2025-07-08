@@ -22,27 +22,24 @@
     }
   </script>
   
-  <div class="flex items-center justify-center w-full rounded-xl border border-border">
-    <table class="w-full text-sm text-left">
-      <thead class="bg-muted text-muted-foreground">
-        <tr>
-          <th class="px-4 py-3 font-medium">ID</th>
-          <th class="px-4 py-3 font-medium">Status</th>
-        </tr>
-      </thead>
-      <tbody>
+  <div class="w-full min-w-[240px]">
+  <div class="shadow-sm w-full rounded-xl border">
+      <div class="rounded-t-xl flex bg-muted font-semibold">
+          <div class="w-1/2 px-4 py-2">ID</div>
+          <div class="w-1/2 px-4 py-2">Status</div>
+      </div>
+      <div>
         {#each tasks as task}
-          <tr class="w-full border-t">
-            <td class="px-4 py-3">{task.id}</td>
-            <td class="px-4 py-3">
+          <div class="flex w-full border-t">
+            <div class="w-1/2 px-4 py-3">{task.id}</div>
+            <div class="w-1/2 px-4 py-3">
               <span class={`inline-flex items-center px-2 py-1 rounded text-xs font-medium ${getStatusColor(task.status)}`}>
                 {task.status}
               </span>
-            </td>
-          </tr>
+            </div>
+          </div>
         {/each}
-      </tbody>
-    </table>
+    </div>
   </div>
-  
+</div>
 
