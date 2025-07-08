@@ -15,17 +15,18 @@
   </script>
 
 <div class="w-full min-w-[240px]">
-    <div class="shadow-sm border rounded-xl w-full">
-        <!-- Header -->
-        <div class="rounded-t-xl flex font-semibold px-4 py-2 bg-muted">
-          <div>Assets</div>
-        </div>
-      
-        {#each assets as asset}
-        <div class="border-t px-4 py-2">
-          <div>{asset.name}</div>
-        </div>
-        {/each}
-    </div>
+  <div class="bg-card shadow-sm border rounded-xl">
+    <!-- Header -->
+    <div class=" rounded-t-xl flex font-semibold px-4 py-2 bg-muted">
+        <div>Assets</div>
+      </div>
+    
+      {#each assets as asset}
+      <div class="border-t px-4 py-2">
+        <div>{asset.name}</div>
+      </div>
+      {/each}
 </div>
+</div>
+
 

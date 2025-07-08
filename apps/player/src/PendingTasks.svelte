@@ -22,8 +22,7 @@
     }
   </script>
   
-  <div class="w-full min-w-[240px]">
-  <div class="shadow-sm w-full rounded-xl border">
+  <div class="bg-card shadow-sm rounded-xl w-full min-w-[240px] border">
       <div class="rounded-t-xl flex bg-muted font-semibold">
           <div class="w-1/2 px-4 py-2">ID</div>
           <div class="w-1/2 px-4 py-2">Status</div>
@@ -40,6 +39,5 @@
           </div>
         {/each}
     </div>
-  </div>
 </div>
 
