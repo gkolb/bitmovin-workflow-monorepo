@@ -26,8 +26,8 @@
   </script>
   
   <div class="flex items-center justify-center">
-    <div class="flex w-full p-4 lg:px-50">
-      <div id="player-container" style="width:100%;height:100%;"></div>
+    <div class="w-full p-4 lg:px-50">
+      <div id="player-container" style="width:100%;height:100%;border-radius:8px"></div>
     </div>
   </div>
   
