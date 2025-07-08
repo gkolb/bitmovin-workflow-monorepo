@@ -35,17 +35,16 @@ const bitmovinApi = new BitmovinApi({
   apiKey: BITMOVIN_API_KEY,
   logger: new ConsoleLogger(),
 });
-console.log(process.env.AWS_INPUT_BUCKET);
 
 export async function main() {
   // Create Input
   // AWS Input
   const input = await bitmovinApi.encoding.inputs.s3.create(
     new S3Input({
-      name: 'bbb_compressed',
+      name: 'First encoding input',
       accessKey: process.env.AWS_ACCESS_KEY,
       secretKey: process.env.AWS_SECRET_KEY,
-      bucketName: process.env.AWS_BUCKET,
+      bucketName: process.env.AWS_INPUT_BUCKET,
     })
   );
 
@@ -56,10 +55,10 @@ export async function main() {
   // AWS S3 Bucket
   const output = await bitmovinApi.encoding.outputs.s3.create(
     new S3Output({
-      name: 'First Encoding Task',
+      name: 'First Encoding Output',
       accessKey: process.env.AWS_ACCESS_KEY,
       secretKey: process.env.AWS_SECRET_KEY,
-      bucketName: process.env.AWS_BUCKET,
+      bucketName: process.env.AWS_OUTPUT_BUCKET,
     })
   );
   const outputId = output.id;
@@ -115,7 +114,7 @@ export async function main() {
   );
 
   // Streams
-  const inputPath = 'bbb_compressed.mp4';
+  const inputPath = process.env.AWS_INPUT_PATH;
 
   const videoStreamInput = new StreamInput({
     inputId: input.id,
@@ -168,7 +167,7 @@ export async function main() {
     });
 
     const segmentLength = 4;
-    const outputPath = 'bbb';
+    const outputPath = process.env.AWS_OUTPUT_PATH;
     const segmentNaming = 'seg_%number%.m4s';
     const initSegmentName = 'init.mp4';
 
