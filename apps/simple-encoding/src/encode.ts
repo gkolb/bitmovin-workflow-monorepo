@@ -45,7 +45,7 @@ export async function encode(inputPath: string) {
       accessKey: process.env.AWS_ACCESS_KEY,
       secretKey: process.env.AWS_SECRET_KEY,
       bucketName: process.env.AWS_INPUT_BUCKET,
-    })
+    }),
   );
 
   // Reuse Inputs
@@ -59,7 +59,7 @@ export async function encode(inputPath: string) {
       accessKey: process.env.AWS_ACCESS_KEY,
       secretKey: process.env.AWS_SECRET_KEY,
       bucketName: process.env.AWS_OUTPUT_BUCKET,
-    })
+    }),
   );
   const outputId = output.id;
   // Reuse Outputs
@@ -73,7 +73,7 @@ export async function encode(inputPath: string) {
         bitrate: 1500000,
         width: 1024,
         presetConfiguration: PresetConfiguration.VOD_STANDARD,
-      })
+      }),
     );
 
   //   const videoCodecConfiguration2 =
@@ -102,7 +102,7 @@ export async function encode(inputPath: string) {
       new AacAudioConfiguration({
         name: 'Getting Started Audio Codec Config',
         bitrate: 128000,
-      })
+      }),
     );
 
   // Create Encoding
@@ -110,7 +110,7 @@ export async function encode(inputPath: string) {
     new Encoding({
       name: 'Getting Started Encoding',
       cloudRegion: CloudRegion.GOOGLE_EUROPE_WEST_1,
-    })
+    }),
   );
 
   // Streams
@@ -128,7 +128,7 @@ export async function encode(inputPath: string) {
       new Stream({
         codecConfigId: videoCodecConfiguration1.id,
         inputStreams: [videoStreamInput],
-      })
+      }),
     );
 
     // const videoStream2 = await bitmovinApi.encoding.encodings.streams.create(
@@ -158,7 +158,7 @@ export async function encode(inputPath: string) {
       new Stream({
         codecConfigId: audioCodecConfiguration.id,
         inputStreams: [audioStreamInput],
-      })
+      }),
     );
 
     // Muxing (Container Format)
@@ -186,7 +186,7 @@ export async function encode(inputPath: string) {
               acl: [aclEntry],
             }),
           ],
-        })
+        }),
       );
     console.log(videoMuxing1);
 
@@ -241,7 +241,7 @@ export async function encode(inputPath: string) {
               acl: [aclEntry],
             }),
           ],
-        })
+        }),
       );
     console.log(audioMuxing);
 
@@ -264,7 +264,7 @@ export async function encode(inputPath: string) {
     });
 
     dashManifest = await bitmovinApi.encoding.manifests.dash.default.create(
-      dashManifest
+      dashManifest,
     );
 
     // Create HLS Manifest
@@ -276,7 +276,7 @@ export async function encode(inputPath: string) {
     });
 
     hlsManifest = await bitmovinApi.encoding.manifests.hls.default.create(
-      hlsManifest
+      hlsManifest,
     );
 
     // Start Encoding
@@ -288,7 +288,7 @@ export async function encode(inputPath: string) {
 
     await bitmovinApi.encoding.encodings.start(
       encoding.id,
-      startEncodingRequest
+      startEncodingRequest,
     );
   }
 }

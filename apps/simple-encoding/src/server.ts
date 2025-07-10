@@ -13,7 +13,7 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'OPTIONS'],
     allowedHeaders: ['*'],
     credentials: false,
-  })
+  }),
 );
 const PORT = process.env.PORT || 3000;
 

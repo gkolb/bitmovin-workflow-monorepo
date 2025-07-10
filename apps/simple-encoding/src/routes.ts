@@ -26,7 +26,7 @@ router.post(
       EncodeSuccessResponse | ErrorResponse,
       EncodeRequestBody
     >,
-    res: Response<any>
+    res: Response<any>,
   ) => {
     const { inputPath } = req.body;
 
@@ -41,7 +41,7 @@ router.post(
       console.error('❌ Encoding failed:', err);
       return res.status(500).json({ error: 'Failed to start encoding' });
     }
-  }
+  },
 );
 
 router.get('/presign', async (req, res) => {

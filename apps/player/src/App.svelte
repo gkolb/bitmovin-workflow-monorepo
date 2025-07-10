@@ -1,7 +1,3 @@
-<style>
-  @import './app.css';
-</style>
-
 <script lang="ts">
   import FileUpload from './FileUpload.svelte';
   import PendingTasks from './PendingTasks.svelte';
@@ -9,7 +5,7 @@
   import Assets from './Assets.svelte';
 
   const source = {
-    dash: import.meta.env.VITE_DASH_SOURCE_URL
+    dash: import.meta.env.VITE_DASH_SOURCE_URL,
   };
 </script>
 
@@ -26,3 +22,7 @@
     <Assets />
   </div>
 </div>
+
+<style>
+  @import './app.css';
+</style>
