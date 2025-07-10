@@ -17,7 +17,7 @@
             "cjs"
           ],
           "bundle": false,
-          "main": "apps/simple-encoding/src/main.ts",
+          "main": "apps/simple-encoding/src/server.ts",
           "tsConfig": "apps/simple-encoding/tsconfig.app.json",
           "assets": [
             "apps/simple-encoding/src/assets"

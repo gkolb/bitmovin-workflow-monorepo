@@ -18,6 +18,8 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@tsconfig/svelte": "^5.0.4",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/node": "^24.0.10",
     "@vitest/ui": "^3.0.0",
     "esbuild": "^0.19.2",
@@ -39,9 +41,13 @@
     "apps/simple-encoding"
   ],
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.844.0",
+    "@aws-sdk/s3-request-presigner": "^3.844.0",
     "@bitmovin/api-sdk": "^1.233.0",
     "bitmovin-player": "^8.216.0",
     "bitmovin-player-ui": "^3.98.0",
-    "dotenv": "^17.0.1"
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0"
   }
 }

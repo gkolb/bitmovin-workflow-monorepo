@@ -36,7 +36,7 @@ const bitmovinApi = new BitmovinApi({
   logger: new ConsoleLogger(),
 });
 
-export async function main() {
+export async function encode(inputPath: string) {
   // Create Input
   // AWS Input
   const input = await bitmovinApi.encoding.inputs.s3.create(
@@ -114,7 +114,7 @@ export async function main() {
   );
 
   // Streams
-  const inputPath = process.env.AWS_INPUT_PATH;
+  // const inputPath = process.env.AWS_INPUT_PATH;
 
   const videoStreamInput = new StreamInput({
     inputId: input.id,
@@ -167,7 +167,7 @@ export async function main() {
     });
 
     const segmentLength = 4;
-    const outputPath = process.env.AWS_OUTPUT_PATH;
+    const outputPath = inputPath.split('.')[0];
     const segmentNaming = 'seg_%number%.m4s';
     const initSegmentName = 'init.mp4';
 
@@ -292,7 +292,3 @@ export async function main() {
     );
   }
 }
-
-main();
-
-console.log('Hello Encoding');
