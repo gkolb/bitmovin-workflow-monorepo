@@ -71,8 +71,6 @@
     } catch (err: any) {
       console.error(err);
       uploadError.set(err.message || 'Upload failed');
-    } finally {
-      uploading.set(false);
     }
   }
 </script>

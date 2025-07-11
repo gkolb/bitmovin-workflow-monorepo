@@ -35,7 +35,7 @@
       });
       const response = await client.send(command);
       let s3Assets: string[] = [];
-      response.CommonPrefixes.forEach((item) => {
+      response.CommonPrefixes?.forEach((item) => {
         s3Assets.push(item.Prefix + 'stream.mpd');
         s3Assets.push(item.Prefix + 'stream.m3u8');
       });

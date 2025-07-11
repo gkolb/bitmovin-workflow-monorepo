@@ -31,7 +31,7 @@ export async function generatePresignedUrl({
   filename,
   expiresIn = 900, // default 15 minutes
 }: GenerateUrlParams): Promise<PresignResult> {
-  const key = `uploads/${filename}`;
+  const key = `${filename}`;
   const command = new PutObjectCommand({
     Bucket: BUCKET,
     Key: key,
