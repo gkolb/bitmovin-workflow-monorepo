@@ -4,9 +4,7 @@
   import Player from './Player.svelte';
   import Assets from './Assets.svelte';
 
-  const source = {
-    dash: import.meta.env.VITE_DASH_SOURCE_URL,
-  };
+  const defaultUrl: string = import.meta.env.VITE_DEFAULT_DASH_URL;
 </script>
 
 <header class="border-b">
@@ -15,7 +13,7 @@
   </div>
 </header>
 <div class="container mx-auto p-15 px-4 space-y-8">
-  <Player {source} />
+  <Player {defaultUrl} />
   <div class="flex flex-col lg:flex-row gap-4 m-10 lg:m-4">
     <FileUpload />
     <PendingTasks />

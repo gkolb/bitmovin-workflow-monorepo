@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { state, loadPlayer } from './state.svelte.ts';
 
-  export let source: { dash?: string; hls?: string };
+  let props = $props();
 
   onMount(async () => {
     const { Player } = await import('bitmovin-player');
@@ -11,17 +12,14 @@
     const container = document.getElementById('player-container');
     if (!container) return;
 
-    const player = new Player(container, {
+    state.player = new Player(container, {
       key: import.meta.env.VITE_BITMOVIN_PLAYER_KEY,
       ui: true,
     });
 
-    UIFactory.buildDefaultUI(player);
+    UIFactory.buildDefaultUI(state.player);
 
-    player.load(source).then(
-      () => console.info('Player loaded'),
-      (e) => console.error('Player load error', e),
-    );
+    loadPlayer(props.defaultUrl);
   });
 </script>
 
